@@ -1,0 +1,70 @@
+//3x3 keypad
+
+
+void setup()        //set input and output
+{
+ pinMode(24,OUTPUT);
+ pinMode(9,OUTPUT);
+ pinMode(10,OUTPUT);
+ pinMode(27,INPUT_PULLUP);
+ pinMode(28,INPUT_PULLUP);
+ pinMode(30,INPUT_PULLUP); 
+ Serial.begin(9600);
+}
+
+//displaying values from 1 to 9 corresponding to the key pressed.
+
+void loop()
+{
+{
+ digitalWrite(24,LOW);
+ digitalWrite(9,HIGH);
+ digitalWrite(10,HIGH);
+ if(digitalRead(27)==0)
+ {
+   Serial.println("1");
+ } 
+ if(digitalRead(28)==0)
+ {
+   Serial.println("2");
+ } 
+ if(digitalRead(30)==0)
+ {
+   Serial.println("3");
+ }  
+}
+{
+ digitalWrite(24,HIGH);
+ digitalWrite(9,LOW);
+ digitalWrite(10,HIGH);
+ if(digitalRead(27)==0)
+ {
+   Serial.println("4");
+ } 
+ if(digitalRead(28)==0)
+ {
+   Serial.println("5");
+ } 
+ if(digitalRead(30)==0)
+ {
+   Serial.println("6");
+ }  
+}
+{
+ digitalWrite(24,HIGH);
+ digitalWrite(9,HIGH);
+ digitalWrite(10,LOW);
+ if(digitalRead(27)==0)
+ {
+   Serial.println("7");
+ } 
+ if(digitalRead(28)==0)
+ {
+   Serial.println("8");
+ } 
+ if(digitalRead(30)==0)
+ {
+   Serial.println("9");
+ }  
+}
+}
