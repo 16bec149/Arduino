@@ -1,0 +1,35 @@
+void setup()  //setup input and output
+{
+  pinMode(9,OUTPUT);
+  pinMode(29,OUTPUT);
+  pinMode(10,OUTPUT);
+}
+
+void loop()
+{
+  int i,j,k;
+  for(i=0;i<2;++i)    //toggling low and high
+  {
+    for(j=0;j<2;++j)
+    {
+      for(k=0;k<1;++k)
+      {
+        digitalWrite(29,LOW);
+        delay(1000);
+        digitalWrite(29,HIGH);
+        delay(1000);
+      }
+      digitalWrite(29,LOW);
+      if(digitalRead(9)==HIGH)
+        digitalWrite(9,LOW);
+        else
+         digitalWrite(9,HIGH);
+    }
+    digitalWrite(29,LOW);
+    digitalWrite(9,LOW);
+     if(digitalRead(10)==HIGH)
+        digitalWrite(10,LOW);
+        else
+         digitalWrite(10,HIGH);
+  }
+}
