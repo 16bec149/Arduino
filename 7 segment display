@@ -1,0 +1,68 @@
+byte digit[10][7]={{1,1,1,1,1,1,0},{0,1,1,0,0,0,0},{1,1,0,1,1,0,1},{1,1,1,1,0,0,1},{0,1,1,0,0,1,1},{1,0,1,1,0,1,1},{1,0,1,1,1,1,1},{1,1,1,0,0,0,0},{1,1,1,1,1,1,1},{1,1,1,1,0,1,1}};
+//form 10x7 matrix to set values from 0 to 9
+
+int unit;
+int tens;
+int hundreds;
+int mypin[]={2,3,4,5,6,7,8};
+int seconds_timer=0;
+
+//setup input and output pins
+void setup()
+{
+ pinMode(2,OUTPUT);
+ pinMode(3,OUTPUT);
+ pinMode(4,OUTPUT);
+ pinMode(5,OUTPUT);
+ pinMode(6,OUTPUT);
+ pinMode(7,OUTPUT);
+ pinMode(8,OUTPUT);
+ pinMode(17,OUTPUT);
+ pinMode(18,OUTPUT);
+ pinMode(19,OUTPUT);
+ digitalWrite(17,LOW);
+ digitalWrite(18,LOW);
+ digitalWrite(19,LOW);
+}
+
+//values from 1 to 10
+ void num_print(int n)
+{
+  for(int i=0;i<=7;i++)
+  {
+    digitalWrite(mypin[i],digit[n][i]);
+  }
+}
+
+
+void loop()
+{
+ seconds_timer=millis()/1000;
+ if((millis()%1000)<100)
+ {
+   digitalWrite(28,HIGH);
+ }
+ else
+ {
+   digitalWrite(28,LOW);
+ }
+// serial.println(time);
+ unit =seconds_timer%10;
+ tens =(seconds_timer/10)%100;
+ hundreds =seconds_timer/100;
+ digitalWrite(17,HIGH);
+ digitalWrite(18,LOW);
+ digitalWrite(19,LOW);
+ num_print(unit);                   //print unit place
+ delay(5);
+ digitalWrite(17,LOW);
+ digitalWrite(18,HIGH);
+ digitalWrite(19,LOW);
+ num_print(tens);                 //print tens place
+ delay(5);
+  digitalWrite(17,LOW);
+ digitalWrite(18,LOW);
+ digitalWrite(19,HIGH);
+ num_print(hundreds);              //print hundreds place
+ delay(5);
+}
