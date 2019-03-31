@@ -1,0 +1,30 @@
+int val=0;
+int old_val=0;
+int state=0;
+
+void setup ()      // setup input and output
+{
+  pinMode(29,OUTPUT);
+  pinMode(PUSH1,INPUT);      
+  
+}
+
+
+void loop()
+{ 
+  val=digitalRead(PUSH1);  //read the button state
+if( (val==HIGH) && (old_val==LOW)) 
+{ 
+  state=1-state;                         
+}                         //restoring previous value
+  old_val=val;        
+  if (state==1)
+  { 
+  digitalWrite(29, HIGH);
+}
+  else {digitalWrite (29,LOW);}
+  
+}
+
+
+
