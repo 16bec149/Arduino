@@ -12,7 +12,7 @@
 
 char thingSpeakAddress[] = "api.thingspeak.com";
 
-String writeAPIKey = "FOQGVAZWVQVJ7IR4";
+String writeAPIKey = "MOC473B5K14AELXE";
 
 const int updateThingSpeakInterval = 16 * 1000; // Time interval in milliseconds to update ThingSpeak (number of seconds * 1000 = interval)
 
@@ -24,7 +24,7 @@ char buffer[250];
 
 // your network name also called SSID
 
-char ssid[] = "suchi";
+char ssid[] = "sao";
 
 // your network password
 
